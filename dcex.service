@@ -1,0 +1,17 @@
+[Unit]
+Description=DCEXPLORER
+
+[Service]
+Type=simple
+User=dc
+Group=
+Restart=on-failure
+Environment=MIX_ENV=prod
+Environment=PORT=4000
+Environment=LANG=en_US.UTF-8
+
+WorkingDirectory=/var/apps/dcex
+ExecStart=/usr/local/bin/mix phx.server
+
+[Install]
+WantedBy=multi-user.target
