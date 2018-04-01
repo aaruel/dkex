@@ -28,7 +28,7 @@ defmodule DkexplorerWeb.LayoutView do
     current_date = DateTime.utc_now |> DateTime.to_unix
     percent = (current_date - af_start) / divisor
     percent = :math.exp(0.046*percent)
-    if percent > 100, do: 100.0, else: percent |> Float.round(2)
+    if percent > 100, do: 100.0, else: percent |> Float.round(3)
   end
 
   def get_info do
