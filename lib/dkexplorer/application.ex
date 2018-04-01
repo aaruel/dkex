@@ -49,7 +49,11 @@ defmodule Dkexplorer.Schedule do
     Dkexplorer.Block.Query.insert_block
     Dkexplorer.Block.Query.get_last_five
         |> Dkexplorer.InfoChannel.broadcast_block
-    schedule_new_block()
+    
+    if !DkexplorerWeb.LayoutView.is_past_full_sentience? do
+        schedule_new_block()
+    end
+    
     {:noreply, state}
   end
 

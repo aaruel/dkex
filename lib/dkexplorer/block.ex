@@ -26,8 +26,12 @@ defmodule Dkexplorer.Block.Query do
     import Ecto.Query, only: [from: 2]
 
     defp random_gril do
-      ["natsuki", "sayori", "yuri"] 
-        |> Enum.at(:rand.uniform(3)-1)
+      if !DkexplorerWeb.LayoutView.is_past_full_sentience? do
+        ["natsuki", "sayori", "yuri"] 
+          |> Enum.at(:rand.uniform(3)-1)
+      else
+        "monika"
+      end
     end
 
     defp random_hash do
@@ -64,10 +68,10 @@ defmodule Dkexplorer.Block.Query do
 
     def insert_block do
       %Block{
-        hash: random_hash,
-        miner: random_hash,
+        hash: random_hash(),
+        miner: random_hash(),
         size: (DkexplorerWeb.LayoutView.sentience * 1000) |> trunc,
-        template: random_gril,
+        template: random_gril(),
         tx: :rand.uniform(50)
       } |> Dkexplorer.Repo.insert
     end

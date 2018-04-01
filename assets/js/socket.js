@@ -64,7 +64,7 @@ channel.on("change", inc_change => {
     $("#hook_hr")[0].innerHTML = `HASHRATE<br><br>${change.hashrate} GH/S`
     $("#hook_dc")[0].innerHTML = `DOKICOINS<br><br>${change.aitemplates * 50}`
     $("#hook_ai")[0].innerHTML = `AI TEMPLATES<br><br>${change.aitemplates}`
-    $("#hook_st")[0].innerHTML = `SENTIENCE<br><br>${change.sentience}%`
+    $("#hook_st")[0].innerHTML = `PERFECTION<br><br>${change.sentience}`
 })
 
 const get_image = (template) => {

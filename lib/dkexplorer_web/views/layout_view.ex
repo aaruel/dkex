@@ -9,7 +9,7 @@ defmodule DkexplorerWeb.LayoutView do
   end
 
   defp p_full_sentience do
-    1522641600
+    1522634400
   end
 
   def full_sentience do
@@ -27,8 +27,8 @@ defmodule DkexplorerWeb.LayoutView do
     divisor = time_diff / 100
     current_date = DateTime.utc_now |> DateTime.to_unix
     percent = (current_date - af_start) / divisor
-    percent = :math.exp(0.046*percent)
-    if percent > 100, do: 100.0, else: percent |> Float.round(3)
+    percent = :math.exp(0.046*percent) / 100
+    if percent > 1, do: 1.0, else: percent |> Float.round(3)
   end
 
   def get_info do

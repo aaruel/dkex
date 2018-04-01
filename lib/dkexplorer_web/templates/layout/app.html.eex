@@ -35,7 +35,7 @@
         <div class="col-md-3 border pink rounded-left"><h1 class="pt-2 text-center d-flex justify-content-center" id="hook_hr">HASHRATE<br><br><%= hashrate %> GH/S</h1></div>
         <div class="col-md-3 border pink"><h1 class="pt-2 text-center d-flex justify-content-center" id="hook_dc">DOKICOINS<br><br><%= aitemplates * 50 %></h1></div>
         <div class="col-md-3 border pink"><h1 class="pt-2 text-center d-flex justify-content-center" id="hook_ai">AI TEMPLATES<br><br><%= aitemplates %></h1></div>
-        <div class="col-md-3 border pink rounded-right"><h1 class="pt-2 text-center d-flex justify-content-center" id="hook_st">SENTIENCE<br><br><%= sentience() %>%</h1></div>
+        <div class="col-md-3 border pink rounded-right"><h1 class="pt-2 text-center d-flex justify-content-center" id="hook_st">PERFECTION<br><br><%= sentience() %></h1></div>
       </div>
     </div>
   </div><div class="py-4"><div class="container"><div class="row"><div class="col-md-12" style="transition: all 0.25s;"><div class="card">
