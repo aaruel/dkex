@@ -1,0 +1,70 @@
+<html><head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- PAGE settings -->
+  <link rel="icon" href="https://pm1.narvii.com/6753/02b3b355ca892b6a7bab538856027c28f2e487b6v2_128.jpg">
+  <title>Dokicoin Explorer</title>
+  <!-- CSS dependencies -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" type="text/css">
+  <link rel="stylesheet" href="<%= static_path(@conn, "/css/app.css") %>" type="text/css"> </head><body class="">
+  <style>
+    .truncate {
+      width: 200px;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+    .pink {
+      background-color: rgba(254, 230, 244, 0.7);
+    }
+  </style>
+  <div class="text-center py-3">
+    <div class="container">
+      <div class="row">
+        <div class="p-3 pink border rounded col-12">
+          <button type="button" class="float-left btn btn-outline-success">< Go Back</button>
+          <h1 class="display-3 text-capitalize"><img style="max-width:150px;max-height:150px;" src="https://i.imgur.com/KpRZPmV.png" /> <span style="color: #ff7f7c;text-shadow: 2px 2px #000;">E</span><span style="color: #fcbae0;text-shadow: 2px 2px #000;">X</span><span style="color: #aaffaa;text-shadow: 2px 2px #000;">P</span><span style="color: #ff7f7e;text-shadow: 2px 2px #000;">L</span><span style="color: #c68bf7;text-shadow: 2px 2px #000;">O</span><span style="color: #ffbbe2;text-shadow: 2px 2px #000;">R</span><span style="color: #c6f2ff;text-shadow: 2px 2px #000;">E</span><span style="color: #c58bf2;text-shadow: 2px 2px #000;">R</span></h1>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="py-3" style="">
+    <div class="container">
+      <div class="row">
+      <% %{aitemplates: aitemplates, hashrate: hashrate} = get_info() %>
+        <div class="col-md-3 border pink rounded-left"><h1 class="pt-2 text-center d-flex justify-content-center" id="hook_hr">HASHRATE<br><br><%= hashrate %> GH/S</h1></div>
+        <div class="col-md-3 border pink"><h1 class="pt-2 text-center d-flex justify-content-center" id="hook_dc">DOKICOINS<br><br><%= aitemplates * 50 %></h1></div>
+        <div class="col-md-3 border pink"><h1 class="pt-2 text-center d-flex justify-content-center" id="hook_ai">AI TEMPLATES<br><br><%= aitemplates %></h1></div>
+        <div class="col-md-3 border pink rounded-right"><h1 class="pt-2 text-center d-flex justify-content-center" id="hook_st">SENTIENCE<br><br><%= sentience() %>%</h1></div>
+      </div>
+    </div>
+  </div><div class="py-4"><div class="container"><div class="row"><div class="col-md-12" style="transition: all 0.25s;"><div class="card">
+    
+    <div class="card-body table-responsive"><table class="table-bordered table-hover table">
+      <thead>
+        <tr>
+          <th scope="col">Template</th>
+          <th scope="col">Hash</th>
+          <th scope="col">TXs</th>
+          <th scope="col">Miner</th>
+          <th scope="col">Moe</th>
+        </tr>
+      </thead>
+      <tbody>
+        
+        <%= for block <- get_blocks() do %>
+          <tr>
+            <td><img src="<%= get_image(block.template) %>" /></td>
+            <td><span class="d-inline-block text-truncate" style="max-width: 150px;"><%= block.hash %></span></td>
+            <td><%= block.tx %></td>
+            <td><span class="d-inline-block text-truncate" style="max-width: 150px;"><%= block.miner %></span></td>
+            <td><%= block.size %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table></div>
+  </div></div></div></div></div>
+  <script src="https://code.jquery.com/jquery-3.2.1.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" crossorigin="anonymous" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"></script>
+  <script src="<%= static_path(@conn, "/js/app.js") %>"></script>
